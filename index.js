@@ -13,6 +13,10 @@ if (!apiKey) {
   process.exit(1); // stop the server
 }
 
+app.get("/", (req, res) => {
+  res.send("This is Kalab: Welcome to my weather app!");
+});
+
 app.get("/currentWeather", async (req, res) => {
   const city = req.query.city;
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
